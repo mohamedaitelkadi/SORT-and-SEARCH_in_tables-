@@ -3,7 +3,7 @@
 #include<ctype.h>
 #include<windows.h>
 //declare de variables:
-int i,j,size,s;
+int i,j,size,s,rc;
 int t[100];
 //------------------------------------------------------------------------------------------------
 //TRI A BULLE:
@@ -19,7 +19,7 @@ for(i=0;i<size;i++)
 //-------------------------------------------------------------------------------------------------
 //TRI PAR INSERTION:
 void insert_sort(){
-    for (i=1;i<=size-1;i++) {
+    for (i=0;i<=size;i++) {
     j=i;
     while (j>0 && t[j-1]>t[j]){
       s=t[j];
@@ -63,6 +63,18 @@ int main()
     for(i=0;i<size;i++){ // affichage de tableau
         printf("nombre n%d: %d\n",i+1,t[i]);
     }
+    //RECHERCHE :
+    printf("Entrez l'element à rechercher : ");
+    scanf("%d",&rc);
+    i = 0;
+    while(i<size && rc != t[i]){
+        i++;
+    }
+    if(i<size)
+        printf("l'element %d se trouve dans la position : %d",rc,i+1);
+    else
+        printf("l'element non trouve !!");
+
 
     return 0;
 }
