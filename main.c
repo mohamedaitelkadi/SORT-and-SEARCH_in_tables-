@@ -19,7 +19,7 @@ for(i=0;i<size;i++)
 //-------------------------------------------------------------------------------------------------
 //TRI PAR INSERTION:
 void insert_sort(){
-    for (i=0;i<=size;i++) {
+    for (i=1;i<=size;i++) {
     j=i;
     while (j>0 && t[j-1]>t[j]){
       s=t[j];
@@ -56,15 +56,16 @@ int main()
     for(i=0;i<size;i++){ // affichage de tableau:
         printf("nombre n%d:%d\n",i+1,t[i]);
     }
-    bubble_sort();
+    //bubble_sort();
     //insert_sort();
     //select_sort();
     printf("le tableau apres le tri : \n");
     for(i=0;i<size;i++){ // affichage de tableau
         printf("nombre n%d: %d\n",i+1,t[i]);
     }
+    //-----------------------------------------------------------------------
     //RECHERCHE :
-    printf("Entrez l'element à rechercher : ");
+    printf("Entrez l'element a rechercher : ");
     scanf("%d",&rc);
     i = 0;
     while(i<size && rc != t[i]){
@@ -74,7 +75,25 @@ int main()
         printf("l'element %d se trouve dans la position : %d",rc,i+1);
     else
         printf("l'element non trouve !!");
-
-
+    //--------------------------------------------------------------------------
+    //recherche dichotomique
+    printf("Entrez l'element a rechercher : ");
+    scanf("%d",&rc);
+    int start=0;
+    int m;
+    int end = size;
+    while (1){
+        m = round((end+start)/2);
+        if(t[m]==rc){
+            printf("l'elemnt trouvé dans la position %d",m);
+            break;
+        }else{
+            if(t[m]>rc){
+                end = m;
+            }else{start=m;
+                printf("greater");
+            }
+        }
+    }
     return 0;
 }
